@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Attendance Records</h2>
+<div class="attendance-container">
+    {% for record in attendance %}
+    <div class="attendance-card">
+        <h3>Employee ID: {{ record.employee_id }}</h3>
+        <p><strong>Date:</strong> {{ record.date }}</p>
+        <p><strong>Time In:</strong> {{ record.time_in }}</p>
+        <p><strong>Time Out:</strong> {{ record.time_out }}</p>
+        <a href="{{ url_for('delete_attendance', attendance_id=record.id) }}" class="delete-btn">Delete</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
